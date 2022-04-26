@@ -1,0 +1,14 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+input {
+  border-radius: 3px;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  input {
+    margin-left: 20px;
+  }
+}

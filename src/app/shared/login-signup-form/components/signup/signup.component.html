@@ -1,0 +1,52 @@
+<div class="text-center">
+  <h1>Sign Up</h1>
+  <h5>Register Yourself</h5>
+  <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+    <div class="mb-3">
+      <label for="exampleInputFullName1" class="form-label">FullName</label>
+      <input type="text" class="form-control" id="exampleInputFullName1" formControlName="fullName"
+        placeholder="Full Name">
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.hasError('required', 'fullName')">*Required<br></span>
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.hasError('minlength', 'fullName')">At least 3
+        characters<br></span>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputMobile1" class="form-label">Mobile Number</label>
+      <input type="text" class="form-control" id="exampleInputMobile1" formControlName="mobile"
+        placeholder="Mobile Number">
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['mobile'].dirty && signUpForm.hasError('required', 'mobile')">*Required<br></span>
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['mobile'].dirty && signUpForm.hasError('minlength', 'mobile')">At least 10
+        numbers<br></span>
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['mobile'].dirty && signUpForm.hasError('pattern', 'mobile')">Write only
+        numbers<br></span>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="email" placeholder="Email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">*Required<br></span>
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('email', 'email')">Write a valid
+        Email<br></span>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"
+        placeholder="Password">
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">*Required<br></span>
+      <span class="text-danger"
+        *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('minlength', 'password')">At least 6
+        Characters<br></span>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" [disabled]="signUpForm.invalid">Sign Up</button>
+  </form>
+  <a routerLink="/login" class="text-white">Already registered? Click to Log In</a>
+</div>

@@ -1,0 +1,30 @@
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="d-sm-none">
+      <mat-icon>local_shipping</mat-icon>
+      <span class="ms-2">E-Commerce</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button routerLink="/cart" *ngIf="getLoggedStatus()">
+        <mat-icon matBadge="{{ totalItem }}" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <mat-icon class="d-none d-sm-block">local_shipping</mat-icon>
+      <span class="ms-2 d-none d-sm-block">E-Commerce</span>
+      <div class="position-relative">
+        <input type="text" placeholder="Search Product" [(ngModel)]="searchTerm" *ngIf="getLoggedStatus()">
+        <button mat-icon-button class="position-absolute end-0" color="primary" (click)="search($event)"
+          *ngIf="getLoggedStatus()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+      <span class="example-spacer"></span>
+      <div class="d-flex align-items-center">
+        <button mat-icon-button class="d-none d-sm-block" routerLink="/cart" *ngIf="getLoggedStatus()">
+          <mat-icon matBadge="{{ totalItem }}" matBadgeColor="warn">shopping_cart</mat-icon>
+        </button>
+        <button mat-raised-button color="warn" class="ms-2" (click)="logout()" *ngIf="getLoggedStatus()">Logout</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>

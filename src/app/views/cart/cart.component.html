@@ -1,0 +1,70 @@
+<div class="container" *ngIf="products.length === 0; else cartDetails">
+  <mat-card class="example-card d-flex flex-column justify-content-start align-items-center">
+    <h4 class="align-self-start">My Cart</h4>
+    <div class="text-center">
+      <img src="../../../assets/img/cart.webp">
+      <h3>Your Cart is Empty</h3>
+      <h4>Add Items Now!</h4>
+      <button mat-raised-button color="primary" routerLink="/products">Shop Now</button>
+    </div>
+  </mat-card>
+</div>
+
+<ng-template #cartDetails>
+  <div class="container">
+    <mat-card>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Product Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef class="d-none d-sm-table-cell">Product Image</th>
+          <td mat-cell *matCellDef="let element" class="d-none d-sm-table-cell">
+            <img src="{{ element.image }}">
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef class="d-none d-lg-table-cell">Description</th>
+          <td mat-cell *matCellDef="let element" class="d-none d-lg-table-cell"> {{element.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef class="d-none d-sm-table-cell">Price</th>
+          <td mat-cell *matCellDef="let element" class="d-none d-sm-table-cell"> {{element.price | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef class="d-none d-sm-table-cell">Quantity</th>
+          <td mat-cell *matCellDef="let element" class="d-none d-sm-table-cell"> {{element.quantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef>Total</th>
+          <td mat-cell *matCellDef="let element"> {{element.total | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="removeItem(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <div class="w-100 d-flex justify-content-end align-items-center gap-3 p-1 mt-3 flex-wrap">
+        <button mat-raised-button color="warn" (click)="emptyCart()">Empty Cart</button>
+        <button mat-raised-button color="primary" routerLink="/products">Shop More</button>
+        <button mat-raised-button color="accent">Checkout</button>
+        <strong>Grand Total: {{ grandTotal | currency }}</strong>
+      </div>
+    </mat-card>
+  </div>
+</ng-template>

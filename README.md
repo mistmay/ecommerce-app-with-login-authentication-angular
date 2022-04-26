@@ -1,3 +1,13 @@
+Simple ecommerce website created with Angular, Material, Bootstrap, Html, Scss and Typescript.
+For the fake products, I used the Api https://fakestoreapi.com/products/ .
+
+In order to signup, login and see the website, you need to use json-server (you can install it with npm install -g json-server)
+and then go in the terminal in the folder src/assets/json (you must be in this folder)
+and run json-server --watch fake-server.json in the default port localhost:3000
+this will simulate a fake simple backend with the right json structure, so you can post and get users details.
+
+try the app by running ng serve in the principal directory.
+
 # ECommerce
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.

@@ -1,0 +1,28 @@
+<div class="text-center">
+  <h1>Login</h1>
+  <h5>Plese Enter email and password</h5>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="email" placeholder="Email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <span class="text-danger"
+        *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">*Required<br></span>
+      <span class="text-danger" *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('email', 'email')">Write
+        a valid Email<br></span>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"
+        placeholder="Password">
+      <span class="text-danger"
+        *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">*Required<br></span>
+      <span class="text-danger"
+        *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('minlength', 'password')">At least 6
+        characters<br></span>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" [disabled]="loginForm.invalid">Login</button>
+  </form>
+  <a routerLink="/signup" class="text-white">New User? Click to sign up</a>
+</div>

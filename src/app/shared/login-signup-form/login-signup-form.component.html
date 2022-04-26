@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <mat-card>
+        <app-login *ngIf="formType === 'login'"></app-login>
+        <app-signup *ngIf="formType === 'signup'"></app-signup>
+      </mat-card>
+    </div>
+  </div>
+</div>

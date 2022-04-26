@@ -1,0 +1,29 @@
+mat-card {
+  margin: 25px;
+  padding: 25px;
+
+  img {
+    width: 250px;
+    margin: 20px 0;
+  }
+}
+
+table {
+  width: 100%;
+
+  img {
+    width: 50px;
+  }
+
+  td,
+  th {
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+button {
+  &:hover {
+    opacity: 0.8;
+  }
+}

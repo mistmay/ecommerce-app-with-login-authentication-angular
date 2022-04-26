@@ -1,0 +1,28 @@
+<mat-card class="container-fluid">
+  <div class="container d-flex flex-wrap m-0">
+    <div>
+      <button (click)="filterCategory('')">
+        <img src="../../../../../assets/img/all.webp">
+        <h5>All Products</h5>
+      </button>
+    </div>
+    <div>
+      <button (click)="filterCategory('electronics')">
+        <img src="../../../../../assets/img/electronics.webp">
+        <h5>Electronics</h5>
+      </button>
+    </div>
+    <div>
+      <button (click)="filterCategory('fashion')">
+        <img src="../../../../../assets/img/fashion.webp">
+        <h5>Fashion</h5>
+      </button>
+    </div>
+    <div>
+      <button (click)="filterCategory('jewelery')">
+        <img src="../../../../../assets/img/jewelery.webp" [style.width.px]="62" [style.marginTop.px]="5">
+        <h5>Jewelery</h5>
+      </button>
+    </div>
+  </div>
+</mat-card>
